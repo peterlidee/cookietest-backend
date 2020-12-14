@@ -57,7 +57,7 @@ const corsOptions = {
     origin: process.env.NODE_ENV === "production" ? 'front-end url' : "http://localhost:7777",
 };
 
-console.log('what is env?', process.env.NODE_ENV)
+console.log('what is env?', process.env.NODE_ENV, 'corsoptions', corsOptions)
 
     
 server.applyMiddleware({
