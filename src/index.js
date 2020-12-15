@@ -37,28 +37,18 @@ const resolvers = {
 const server = new ApolloServer({
     typeDefs,
     resolvers,
-    // resolverValidationOptions: {
-    //     requireResolversForResolveType: false
-    // },
     context: ctx => ({ ...ctx }),
 })
  
 // make the express server
+// we will add more middleware later, so we need this
 const app = express();
-
-server.applyMiddleware({ app });
 
 // set cors
 const corsOptions = {
     credentials: true, // <-- REQUIRED backend setting
-    //origin: process.env.FRONTEND_URL, // you'd think this would work but it only does locally, not on heroku
-    //origin: "https://10votes-frontend.peterlidee.vercel.app/",
-    //origin: true, // so we just set true and it works, dunno why but it took me long enough
     origin: process.env.NODE_ENV === "production" ? 'https://corstest-frontend.vercel.app' : "http://localhost:7777",
 };
-
-console.log('what is env?', process.env.NODE_ENV, 'corsoptions', corsOptions)
-
     
 server.applyMiddleware({
     app,
