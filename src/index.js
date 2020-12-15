@@ -21,13 +21,15 @@ const resolvers = {
             // generate random num 0-1000 to set as value for cookie
             const random = Math.floor(Math.random() * 1000);
 
-            // set cookie
-            ctx.res.cookie('test', random, {
+            const options = {
                 httpOnly: true,
                 maxAge: 1000 * 60 * 60 * 24 * 365, // oneyear cookie 
-                secure: true,
+                secure: process.env.NODE_ENV === "production" ? true : false, // no secure on localhost
                 sameSite: "none",
-            });
+            }
+
+            // set cookie
+            ctx.res.cookie('test', random, options);
             return random;
         }
     }
