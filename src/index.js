@@ -25,8 +25,8 @@ const resolvers = {
             ctx.res.cookie('test', random, {
                 httpOnly: true,
                 maxAge: 1000 * 60 * 60 * 24 * 365, // oneyear cookie 
-                //secure: true,
-                //sameSite: "none",
+                secure: true,
+                sameSite: "none",
             });
             return random;
         }
