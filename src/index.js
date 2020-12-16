@@ -53,7 +53,7 @@ const app = express();
 // set cors
 const corsOptions = {
     credentials: true, // <-- REQUIRED backend setting
-    origin: process.env.NODE_ENV === "production" ? 'https://corstest-frontend.vercel.app' : "http://localhost:7777",
+    origin: process.env.NODE_ENV === "production" ? '' : "http://localhost:7777",
 };
     
 server.applyMiddleware({
