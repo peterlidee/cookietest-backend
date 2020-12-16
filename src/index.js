@@ -29,7 +29,7 @@ const resolvers = {
             }
             // don't put domain on localhost, it's messy
             if(process.env.NODE_ENV === "production"){
-                options.domain = "corstest-frontend.vercel.app";
+                options.domain = ".vercel.app";
             }
             // set cookie
             ctx.res.cookie('test', random, options);
