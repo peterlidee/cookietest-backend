@@ -27,7 +27,10 @@ const resolvers = {
                 secure: process.env.NODE_ENV === "production" ? true : false, // no secure on localhost
                 sameSite: "none",
             }
-
+            // don't put domain on localhost, it's messy
+            if(process.env.NODE_ENV === "production"){
+                options.domain = "corstest-frontend.vercel.app";
+            }
             // set cookie
             ctx.res.cookie('test', random, options);
             return random;
