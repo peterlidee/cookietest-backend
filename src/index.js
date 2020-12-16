@@ -31,6 +31,7 @@ const resolvers = {
             if(process.env.NODE_ENV === "production"){
                 options.domain = ".vercel.app";
             }
+            console.log('cookie options', options)
             // set cookie
             ctx.res.cookie('test', random, options);
             return random;
