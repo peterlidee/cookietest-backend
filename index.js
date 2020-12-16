@@ -29,7 +29,7 @@ const resolvers = {
             }
             // don't put domain on localhost, it's messy
             if(process.env.NODE_ENV === "production"){
-                options.domain = ".vercel.app";
+                options.domain = "corsttest-apolloserver.vercel.app";
             }
             console.log('cookie options', options)
             // set cookie
